@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'add-mood',
+    loadComponent: () => import('./add-mood/add-mood.page').then( m => m.AddMoodPage)
+  },
 ];
