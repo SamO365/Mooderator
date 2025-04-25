@@ -4,7 +4,7 @@ import { AddMoodPage } from './add-mood/add-mood.page';
 import { QuotePage } from './quote/quote.page';
 
 export const routes: Routes = [
-  { path: '', component: HomePage },
+  { path: 'home', component: HomePage },
   { path: 'add', component: AddMoodPage },
   { path: 'quote', component: QuotePage }
 ];

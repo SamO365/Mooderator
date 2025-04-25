@@ -20,6 +20,7 @@ export class HomePage {
     this.loadMoods();
   }
 
+  //loads moods from previous sessions
   async loadMoods() {
     this.moods = await this.storageService.getMoods();
   }

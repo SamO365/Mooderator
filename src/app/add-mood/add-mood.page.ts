@@ -13,10 +13,12 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./add-mood.page.scss'],
   imports: [IonicModule, CommonModule, FormsModule]
 })
+
 export class AddMoodPage {
   selectedMood: any = null;
   note: string = '';
 
+  
   moodOptions = [
     { icon: '😢', value: 1 },
     { icon: '😞', value: 2 },
@@ -31,38 +33,39 @@ export class AddMoodPage {
     this.selectedMood = mood;
   }
 
-  async saveMood() {
-    if (!this.selectedMood) return;
-  
-    const newMood = {
-      moodValue: this.selectedMood.value,
-      date: new Date().toISOString(),
-      note: this.note.trim() || undefined
-    };
-  
-    await this.storageService.addMood(newMood);
-  
-    const alert = await this.alertController.create({
-      header: 'Nice Work!',
-      message: 'Would you like a quote to make you feel even better?',
-      buttons: [
-        {
-          text: 'No thanks',
-          role: 'cancel',
-          handler: () => {
-            this.router.navigateByUrl('/home');
-          }
-        },
-        {
-          text: 'Yes please!',
-          handler: () => {
-            this.router.navigateByUrl('/quote');
-          }
+ async saveMood() {
+  if (!this.selectedMood) return;
+
+  const newMood = {
+    moodValue: this.selectedMood.value,
+    date: new Date().toISOString(),
+    note: this.note.trim() || undefined
+  };
+
+  await this.storageService.addMood(newMood);
+
+  //prompt for the user to get a quote or not
+  const alert = await this.alertController.create({
+    header: 'Nice Work!',
+    message: 'Would you like a quote to make you feel even better?',
+    buttons: [
+      {
+        text: 'No thanks',
+        role: 'cancel',
+        handler: () => {
+          this.router.navigateByUrl('/home');
         }
-      ]
-    });
-  
-    await alert.present();
-  }
-  
+      },
+      {
+        text: 'Yes please!',
+        handler: () => {
+          this.router.navigateByUrl('/quote');
+        }
+      }
+    ]
+  });
+
+  await alert.present();
+}
+
 }

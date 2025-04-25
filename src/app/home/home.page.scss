@@ -7,6 +7,39 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.ion-padding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.link-button {
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #container strong {
   font-size: 20px;

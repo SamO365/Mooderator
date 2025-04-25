@@ -1,7 +1,8 @@
-<ion-header><ion-toolbar><ion-title>MoodMate</ion-title></ion-toolbar></ion-header>
+<ion-header><ion-toolbar><ion-title>Mooderator</ion-title></ion-toolbar></ion-header>
+<ion-text class="title">Mooderator</ion-text>
 <ion-content class="ion-padding">
-  <ion-button routerLink="/add">Add Mood</ion-button>
-  <ion-button routerLink="/quote">Quote</ion-button>
+  <ion-button class="link-button" routerLink="/add">Add Mood</ion-button>
+  <ion-button class="link-button" routerLink="/quote">Quote</ion-button>
 
   <ion-list *ngIf="moods.length">
     <ion-item *ngFor="let mood of moods">
