@@ -8,6 +8,9 @@ import { AppComponent } from './app/app.component';
 import { isDevMode } from '@angular/core';
 import { provideServiceWorker } from '@angular/service-worker';
 import { environment } from './environments/environment';
+import { provideHttpClient } from '@angular/common/http';
+
+
 
 if (environment.production) {
   enableProdMode();
@@ -20,7 +23,7 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)), provideServiceWorker('ngsw-worker.js', {
             enabled: !isDevMode(),
             registrationStrategy: 'registerWhenStable:30000'
-          }), importProvidersFrom(IonicStorageModule.forRoot())
+          }), importProvidersFrom(IonicStorageModule.forRoot()),provideHttpClient()
 
-  ],
+  ]
 });

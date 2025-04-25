@@ -1,8 +1,38 @@
 <!--this page will be for updating your new mood-->
 
-<ion-header><ion-toolbar><ion-title>Add Mood</ion-title></ion-toolbar></ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>How are you feeling today</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <ion-range min="1" max="5" [(ngModel)]="moodValue" snaps ticks></ion-range>
-  <ion-textarea placeholder="Optional note..." [(ngModel)]="note"></ion-textarea>
-  <ion-button expand="full" (click)="saveMood()">Save</ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>How are you feeling?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="emoji-buttons">
+      <ion-button
+        *ngFor="let emoji of moodOptions"
+        fill="{{ selectedMood === emoji.value ? 'solid' : 'outline' }}"
+        (click)="selectMood(emoji)"
+        class="emoji-btn"
+      >
+        {{ emoji.icon }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="saveMood()" [disabled]="!selectedMood">
+    Save Mood
+  </ion-button>
+
+  <ion-item lines="none" class="ion-margin-top">
+    <ion-label position="stacked">Why do you feel this way?</ion-label>
+    <ion-textarea
+      [(ngModel)]="note"
+      placeholder="Write a short note..."
+      autoGrow="true"
+    ></ion-textarea>
+  </ion-item>
 </ion-content>

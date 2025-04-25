@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Daily Quote</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      {{ quote }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="loadQuote()">
+    New Quote
+  </ion-button>
+</ion-content>
